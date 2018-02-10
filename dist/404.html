@@ -10,14 +10,23 @@
     <script src="js/angular-chart-min.js"></script>
   </head>
   <body ng-app="RedditMyersBriggs" ng-controller="personasController">
-    <div ng-if="personaResults">
-        <h2 style="text-align:center; margin-bottom: 5%">{{subreddit}}</h2>
-        <div style="display:block">
+    <div>
+        <div>
+          <h1 style="text-align:center; margin-bottom:1%;">Reddit Myers Briggs Analysis</h1>
+          <h2  ng-if="subTitle" style="text-align:center; margin-bottom: 1%">{{subTitle}}</h2>
+          <form style="text-align:center;margin-bottom: 1%" ng-submit="submitRequest()">
+            <input style="width:12%;text-align:center;" type="text" ng-model="subreddit"/>
+            <input class="btn btn-default btn-sm" style="margin-bottom: 4px" style="width:8%" type="submit"/>
+          </form>
+          <h3 ng-if="warning" style="text-align:center;color:#ff0000">{{warning}}</h3>
+        </div>
+        <div ng-if="personaResults.length > 0" style="display:block">
           <div>
             <canvas height="{{chartHeight}}" id="base" chart-type="type" class="chart chart-base" chart-data="personaResults" chart-options="options" chart-labels="personas"></canvas>
           </div>
-          <button style="float:right;padding: 5px;margin-right:15%;margin-top: 3%" ng-click="toggleGraph()">Toggle</button>
+          <button class="btn btn-primary btn-sm" style="float:right;padding: 5px;margin-right:15%;margin-top: 3%" ng-click="toggleGraph()">Toggle</button>
         </div>
+        <!-- <p style="text-align:center; margin-top 60%">Uses the Indico API to analyze Myers Briggs personas of self text posts on specific subreddits. (Reddit data was collected through the PushShift Reddit API)</p> -->
     </div>
   </body>
 </html>
