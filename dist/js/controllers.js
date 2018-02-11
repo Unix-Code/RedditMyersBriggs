@@ -9,10 +9,17 @@ angular.module('RedditMyersBriggs.controllers', ['chart.js']).
     $scope.chartHeight = window.innerHeight * 0.12;
 
     $scope.maxCountOptions = {
-      title: {
-          display: true,
-          text: 'Percentage of Posts That Are Primarily a Persona'
-      }
+        title: {
+            display: true,
+            text: 'Percentage of Posts That Are Primarily a Persona'
+        },
+        scales: {
+          xAxes: [{
+            ticks: {
+              autoSkip: false
+            }
+          }]
+        }
     };
 
     $scope.averagePersonaOptions = {
@@ -55,7 +62,7 @@ angular.module('RedditMyersBriggs.controllers', ['chart.js']).
 
     $scope.toggleGraph2 = function() {
       $scope.type2 = ($scope.type2 === "bar") ? "pie" : "bar";
-      $scope.maxCountOptions = getAdjustedMaxCountsOptions();
+      $scope.maxCountOptions = $scope.getAdjustedMaxCountsOptions();
     }
 
     var extractSelfTexts = function(data) {
