@@ -139,19 +139,25 @@
             </form>
         </div>
     </div>
-    
+
     <!-- MAIN CONTENT -->
     <div class="container" ng-if="personaResults.length > 0">
         <div class="row">
             <!-- GRAPH AND TOGGLE -->
             <div class="columns seven" height="{{chartHeight}}">
-                <canvas height="{{chartHeight}}" width="{{chartHeight}}" id="base" chart-type="type" class="chart chart-base" chart-data="personaResults" chart-options="options" chart-labels="personas"></canvas>
+                <canvas height="{{chartHeight}}" width="{{chartHeight}}" id="base" chart-type="type1" class="chart chart-base" chart-data="personaResults" chart-options="averagePersonaOptions" chart-labels="personas"></canvas>
                 <button class="element toggleGraph" ng-click="toggleGraph()">Toggle</button>
             </div>
             <!-- ADDITIONAL INFORMATION -->
             <div class="columns five">
-                <p>Uses the Indico API to analyze Myers Briggs personas of self text posts on specific subreddits. (Reddit data was collected through the PushShift Reddit API)</p>
+                <p>Uses the <a href="https://indico.io/">Indico API</a> to analyze <a href="https://www.16personalities.com/personality-types">Myers Briggs</a> personas of self text posts on specific subreddits. (Reddit data was collected through the PushShift Reddit API)</p>
             </div>
+        </div>
+        <div style="margin-top: 6%" class="row">
+          <div class="columns seven" height="{{chartHeight}}">
+              <canvas height="{{chartHeight}}" width="{{chartHeight}}" id="base2" chart-type="type2" class="chart chart-base" chart-data="maxCountPersonaResults" chart-options="maxCountOptions" chart-labels="maxCountPersonas"></canvas>
+              <button class="element toggleGraph" ng-click="toggleGraph2()">Toggle</button>
+          </div>
         </div>
     </div>
 
