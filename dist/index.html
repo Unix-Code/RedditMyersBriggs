@@ -18,23 +18,7 @@
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/skeleton.css">
     <style>
-        /* TITLE */
-
-        .title {
-            height: 55px;
-            border-bottom: 1px solid gray;
-            padding-bottom: 5px;
-            margin-bottom: 15px;
-        }
-
-        .title * {
-            display: inline-block;
-            margin: 0px 10px;
-        }
-
-        .title h1 {
-            margin-left: 50px;
-        }
+        /* Standard Style */
 
         .title h5 {
             color: white;
@@ -44,42 +28,118 @@
             padding-left: 7px;
             padding-right: 7px;
             border-radius: 5px;
+            margin-top: 20px;
+            text-align: center;
         }
-
-        #right {
-            margin: auto;
-            padding-top: 10px;
-        }
-
-        /* GRAPH TOGGLE */
 
         .toggleGraph {
-            width: 20%;
-            margin-left: 40%;
+            width: 100%;
+            margin-top: 20px;
         }
 
+        h1 {
+            font-size: 300%;
+        }
+
+        input {
+            width: 49%;
+        }
+
+        #header2 {
+            display: none;
+        }
+
+        /* Larger than 1000px */
+
+        @media (min-width 1000px) {
+            .title * {
+                display: inline-block;
+                margin: 0px 10px;
+            }
+        }
+
+        /* Larger than 1800px */
+
+        @media (min-width: 1800px) {
+            /* TITLE */
+            .title {
+                height: 55px;
+                padding-bottom: 5px;
+                margin-bottom: 15px;
+                box-shadow: 5px 1px;
+            }
+
+            .title h1 {
+                margin-left: 50px;
+                text-align: center;
+            }
+
+            #search {
+                margin-top: 10px;
+            }
+
+            #header1 {
+                display: none;
+            }
+
+            #header2 {
+                display: block;
+            }
+        }
     </style>
 </head>
 
 <body ng-app="RedditMyersBriggs" ng-controller="personasController">
 
-    <!-- HEADER -->
-    <div class="title">
+    <!-- HEADER1 STANDARD -->
+    <div id="header1" class="title container">
+        <div class="row">
+            <!-- TITLE -->
+            <div class="columns six">
+                <h1>Reddit Myers Briggs Analysis</h1>
+            </div>
+            <!-- DISPLAY CODE -->
+            <div class="columns four">
+                <h5 ng-if="subTitle">{{subTitle}}</h5>
+            </div>
+        </div>
+        <div class="row">
+            <!-- WARNING -->
+            <div class="columns four">
+                <h3 id="warning" ng-if="warning">{{warning}}</h3>
+            </div>
+            <!-- SEARCH BAR -->
+            <div class="columns eight">
+                <form id="search" ng-submit="submitRequest()">
+                    <input type="text" ng-model="subreddit" />
+                    <input class="button button-primary" type="submit" />
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- HEADER2 GREATER THAN 1800 -->
+    <div id="header2" class="title row">
         <!-- TITLE -->
-        <div id="left" class="u-pull-left">
+        <div class="columns five">
             <h1>Reddit Myers Briggs Analysis</h1>
+        </div>
+        <!-- DISPLAY CODE -->
+        <div class="columns two">
             <h5 ng-if="subTitle">{{subTitle}}</h5>
         </div>
-        <!-- SEARCH BAR -->
-        <div id="right" class="u-pull-right">
+        <div class="columns two">
             <h3 id="warning" ng-if="warning">{{warning}}</h3>
-            <form ng-submit="submitRequest()">
+        </div>
+        <!-- SEARCH BAR -->
+        <div class="columns three" style="position: absolute; right: 0;">
+            <form id="search" ng-submit="submitRequest()">
                 <input type="text" ng-model="subreddit" />
                 <input class="button button-primary" type="submit" />
             </form>
         </div>
     </div>
-
+    
     <!-- MAIN CONTENT -->
     <div class="container" ng-if="personaResults.length > 0">
         <div class="row">
