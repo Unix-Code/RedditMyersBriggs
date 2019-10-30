@@ -7,7 +7,7 @@ from flask_cors import CORS
 application = Flask(__name__)
 CORS(application)
 application.config["INDICO_API_KEY"] = os.environ.get("INDICO_API_KEY")
-application.config["MIN_DATA_LENGTH"] = os.environ.get("MIN_DATA_LENGTH", 10)
+application.config["MIN_DATA_LENGTH"] = int(os.environ.get("MIN_DATA_LENGTH", 10))
 
 
 def to_percent_by_len(nums, length=None):
