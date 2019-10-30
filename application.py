@@ -4,10 +4,10 @@ import requests
 from flask import Flask, current_app
 from flask_cors import CORS
 
-app = Flask(__name__)
-CORS(app)
-app.config["INDICO_API_KEY"] = os.environ.get("INDICO_API_KEY")
-app.config["MIN_DATA_LENGTH"] = os.environ.get("MIN_DATA_LENGTH", 10)
+application = Flask(__name__)
+CORS(application)
+application.config["INDICO_API_KEY"] = os.environ.get("INDICO_API_KEY")
+application.config["MIN_DATA_LENGTH"] = os.environ.get("MIN_DATA_LENGTH", 10)
 
 
 def to_percent_by_len(nums, length=None):
@@ -43,7 +43,7 @@ def get_personas(subreddit: str):
     return personas.json().get("results", [])
 
 
-@app.route('/personas/stats/<subreddit>')
+@application.route('/personas/stats/<subreddit>')
 def get_persona_stats(subreddit):
     raw_results = get_personas(subreddit)
 
