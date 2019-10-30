@@ -12,7 +12,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- FONT -->
-    <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
+<!--    <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">-->
 
     <!-- Favicon -->
     <link rel='shortcut icon' type='image/x-icon' href='favicon.ico' />
@@ -166,12 +166,12 @@
         <div class="row">
             <!-- GRAPH AND TOGGLE 1 -->
             <div class="columns six" height="{{chartHeight}}">
-                <canvas height="{{chartHeight}}" width="{{chartHeight}}" id="base" chart-type="type1" class="chart chart-base" chart-data="personaResults" chart-options="averagePersonaOptions" chart-labels="personas"></canvas>
+                <canvas height="{{chartHeight}}" width="{{chartHeight}}" id="base" chart-type="type1" class="chart chart-base" chart-data="avg_results" chart-options="averagePersonaOptions" chart-labels="avg_personas"></canvas>
                 <button class="element toggleGraph" ng-click="toggleGraph()">Toggle</button>
             </div>
             <!-- GRAPH AND TOGGLE 2 -->
             <div class="columns six" height="{{chartHeight}}">
-                <canvas height="{{chartHeight}}" width="{{chartHeight}}" id="base2" chart-type="type2" class="chart chart-base" chart-data="maxCountPersonaResults" chart-options="maxCountOptions" chart-labels="maxCountPersonas"></canvas>
+                <canvas height="{{chartHeight}}" width="{{chartHeight}}" id="base2" chart-type="type2" class="chart chart-base" chart-data="max_count_results" chart-options="maxCountOptions" chart-labels="max_count_personas"></canvas>
                 <button class="element toggleGraph" ng-click="toggleGraph2()">Toggle</button>
             </div>
         </div>
@@ -206,7 +206,7 @@
 
 
     <!-- Scripts -->
-    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.js"></script>
+    <script src="js/angular.min.js"></script>
     <script src="js/app.js"></script>
     <script src="js/services.js"></script>
     <script src="js/controllers.js"></script>
