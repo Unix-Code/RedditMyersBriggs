@@ -6,13 +6,13 @@
     <meta charset="utf-8">
     <title>Reddit Myers Briggs</title>
     <meta name="description" content="">
-    <meta name="author" content="">
+    <meta name="author" content="David Malakh">
 
     <!-- Mobile Specific Metas -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- FONT -->
-<!--    <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">-->
+    <link href="https://fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
 
     <!-- Favicon -->
     <link rel='shortcut icon' type='image/x-icon' href='favicon.ico' />
@@ -20,85 +20,7 @@
     <!-- CSS -->
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/skeleton.css">
-    <style>
-        /* Standard Style */
-
-        .title h5 {
-            color: white;
-            background-color: lightblue;
-            position: relative;
-            top: -8px;
-            padding-left: 7px;
-            padding-right: 7px;
-            border-radius: 5px;
-            margin-top: 20px;
-            text-align: center;
-        }
-
-        .toggleGraph {
-            width: 100%;
-            margin-top: 20px;
-        }
-
-        h1 {
-            font-size: 300%;
-        }
-
-        input {
-            width: 49%;
-        }
-
-        #header2 {
-            display: none;
-        }
-
-        .footer {
-            height: auto;
-            border-top: 1px solid gray;
-            text-align: center;
-        }
-
-        .footer * {
-            margin-left: 10px;
-            padding: 5px;
-            margin-bottom: 0px;
-            display: inline-block;
-        }
-
-        .footer a {
-            font-style: normal;
-            text-decoration: none;
-        }
-
-        /* Larger than 1800px */
-
-        @media (min-width: 1800px) {
-            /* TITLE */
-            .title {
-                height: 55px;
-                padding-bottom: 5px;
-                margin-bottom: 15px;
-                box-shadow: 5px 1px;
-            }
-
-            .title h1 {
-                margin-left: 50px;
-                text-align: center;
-            }
-
-            #search {
-                margin-top: 10px;
-            }
-
-            #header1 {
-                display: none;
-            }
-
-            #header2 {
-                display: block;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="css/site.css">
 </head>
 
 <body ng-app="RedditMyersBriggs" ng-controller="personasController">
@@ -154,7 +76,6 @@
 
     <!-- MAIN CONTENT -->
     <div class="container" ng-if="haveResults == true">
-        {{haveResults}}
         <div class="row">
             <!-- GRAPH AND TOGGLE 1 -->
             <div class="columns six" height="{{chartHeight}}">
@@ -198,12 +119,12 @@
 
 
     <!-- Scripts -->
-    <script src="js/angular.min.js"></script>
+    <script src="https://code.angularjs.org/1.6.1/angular.min.js"></script>
     <script src="js/app.js"></script>
     <script src="js/services.js"></script>
     <script src="js/controllers.js"></script>
-    <script src="js/chart.min.js"></script>
-    <script src="js/angular-chart-min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.1/dist/Chart.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/angular.chartjs/latest/angular-chart.min.js"></script>
 </body>
 
 </html>

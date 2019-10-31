@@ -1,0 +1,77 @@
+/* Standard Style */
+
+.title h5 {
+    color: white;
+    background-color: lightblue;
+    position: relative;
+    top: -8px;
+    padding-left: 7px;
+    padding-right: 7px;
+    border-radius: 5px;
+    margin-top: 20px;
+    text-align: center;
+}
+
+.toggleGraph {
+    width: 100%;
+    margin-top: 20px;
+}
+
+h1 {
+    font-size: 300%;
+}
+
+input {
+    width: 49%;
+}
+
+#header2 {
+    display: none;
+}
+
+.footer {
+    height: auto;
+    border-top: 1px solid gray;
+    text-align: center;
+}
+
+.footer * {
+    margin-left: 10px;
+    padding: 5px;
+    margin-bottom: 0px;
+    display: inline-block;
+}
+
+.footer a {
+    font-style: normal;
+    text-decoration: none;
+}
+
+/* Larger than 1800px */
+
+@media (min-width: 1800px) {
+    /* TITLE */
+    .title {
+        height: 55px;
+        padding-bottom: 5px;
+        margin-bottom: 15px;
+        box-shadow: 5px 1px;
+    }
+
+    .title h1 {
+        margin-left: 50px;
+        text-align: center;
+    }
+
+    #search {
+        margin-top: 10px;
+    }
+
+    #header1 {
+        display: none;
+    }
+
+    #header2 {
+        display: block;
+    }
+}
