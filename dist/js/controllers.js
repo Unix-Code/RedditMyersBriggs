@@ -3,9 +3,8 @@ angular.module('RedditMyersBriggs.controllers', ['chart.js']).controller('person
     $scope.type1 = "radar";
     $scope.type2 = "bar"
     $scope.subreddit = "INTP";
-    $scope.personaResults = [];
-    $scope.personas = [];
     $scope.chartHeight = window.innerHeight * 0.12;
+    $scope.data = {}
 
     $scope.maxCountOptions = {
         title: {
@@ -67,10 +66,10 @@ angular.module('RedditMyersBriggs.controllers', ['chart.js']).controller('person
     $scope.submitRequest = () => {
         $scope.subTitle = $scope.subreddit;
         $scope.warning = "";
-        $scope.personas = [];
-        $scope.personaResults = [];
+        $scope.haveResults = false;
         redditPersonaAPIService.getPersonaResults($scope.subreddit).then((response) => {
-            $scope = {...response.data.data, ...$scope}
+            $scope.data = response.data.data;
+            $scope.haveResults = true;
         }).catch((err) => {
             console.log(err)
             $scope.warning = "Not Enough Data for Analysis"

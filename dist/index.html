@@ -70,15 +70,6 @@
             text-decoration: none;
         }
 
-        /* Larger than 1000px */
-
-        @media (min-width 1000px) {
-            .title * {
-                display: inline-block;
-                margin: 0px 10px;
-            }
-        }
-
         /* Larger than 1800px */
 
         @media (min-width: 1800px) {
@@ -162,16 +153,17 @@
     </div>
 
     <!-- MAIN CONTENT -->
-    <div class="container" ng-if="personaResults.length > 0">
+    <div class="container" ng-if="haveResults == true">
+        {{haveResults}}
         <div class="row">
             <!-- GRAPH AND TOGGLE 1 -->
             <div class="columns six" height="{{chartHeight}}">
-                <canvas height="{{chartHeight}}" width="{{chartHeight}}" id="base" chart-type="type1" class="chart chart-base" chart-data="avg_results" chart-options="averagePersonaOptions" chart-labels="avg_personas"></canvas>
+                <canvas height="{{chartHeight}}" width="{{chartHeight}}" id="base" chart-type="type1" class="chart chart-base" chart-data="data.avg_results" chart-options="averagePersonaOptions" chart-labels="data.avg_personas"></canvas>
                 <button class="element toggleGraph" ng-click="toggleGraph()">Toggle</button>
             </div>
             <!-- GRAPH AND TOGGLE 2 -->
             <div class="columns six" height="{{chartHeight}}">
-                <canvas height="{{chartHeight}}" width="{{chartHeight}}" id="base2" chart-type="type2" class="chart chart-base" chart-data="max_count_results" chart-options="maxCountOptions" chart-labels="max_count_personas"></canvas>
+                <canvas height="{{chartHeight}}" width="{{chartHeight}}" id="base2" chart-type="type2" class="chart chart-base" chart-data="data.max_count_results" chart-options="maxCountOptions" chart-labels="data.max_count_personas"></canvas>
                 <button class="element toggleGraph" ng-click="toggleGraph2()">Toggle</button>
             </div>
         </div>
